@@ -21,3 +21,19 @@ SELECT
 FROM listings
 GROUP BY room_type
 ORDER BY avg_price DESC;
+
+-- QUERY 3: THE INVESTOR'S SHORTLIST
+-- Goal: Identify specific high-value targets in Brooklyn.
+-- Criteria: Budget-friendly, entire homes, proven guest history.
+
+SELECT 
+    id, 
+    neighborhood, 
+    price, 
+    number_of_reviews
+FROM listings
+WHERE neighborhood = 'Brooklyn' 
+  AND price < 150 
+  AND room_type = 'Entire home/apt' 
+  AND number_of_reviews > 50
+ORDER BY price ASC;
